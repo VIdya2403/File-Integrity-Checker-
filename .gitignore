@@ -1,0 +1,12 @@
+# Ignore local database ledger
+baseline.txt
+
+# Ignore temporary testing dummy files
+test.txt
+document.txt
+secret.txt
+hacker.txt
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
