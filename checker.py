@@ -26,10 +26,10 @@ def create_baseline(target_folder, baseline_file):
 
 def monitor_integrity(target_folder, baseline_file):
     """Phase 2: Compares current files against the saved baseline."""
-    print(f"\n[🔄] Starting Integrity Monitoring Mode...")
+    print(f"\n[] Starting Integrity Monitoring Mode...")
     
     if not os.path.exists(baseline_file):
-        print(f"❌ Error: Baseline file '{baseline_file}' not found. Run baseline mode first.")
+        print(f" Error: Baseline file '{baseline_file}' not found. Run baseline mode first.")
         return
 
     baseline_dict = {}
@@ -52,14 +52,14 @@ def monitor_integrity(target_folder, baseline_file):
             # Case 1: File is in baseline, let's check if it changed
             if full_path in baseline_dict:
                 if current_hash != baseline_dict[full_path]:
-                    print(f"🚨 ALERT: File MODIFIED! -> {full_path}")
+                    print(f" ALERT: File MODIFIED! -> {full_path}")
             # Case 2: File is brand new (not in baseline)
             else:
-                print(f"⚠️ WARNING: New untrusted file detected! -> {full_path}")
+                print(f" WARNING: New untrusted file detected! -> {full_path}")
 
     for saved_path in baseline_dict:
         if saved_path not in current_files:
-            print(f"🚨 ALERT: File DELETED! -> {saved_path}")
+            print(f"ALERT: File DELETED! -> {saved_path}")
 
 if __name__ == "__main__":
     print("=== FILE INTEGRITY CHECKER ===")
