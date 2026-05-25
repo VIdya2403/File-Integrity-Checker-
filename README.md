@@ -2,7 +2,7 @@
 
 A lightweight, built-from-scratch cybersecurity tool written in Python that monitors and diagnoses directory tampering using cryptographic hashing. 
 
-*This project establishes a **"Known Good State"** (a security baseline) of your local directory and actively flags unauthorized file modifications, creations, or deletions mimicking the core logic used by enterprise integrity tools like Tripwire.
+*This project establishes a "Known Good State" (a security baseline) of your local directory and actively flags unauthorized file modifications, creations, or deletions mimicking the core logic used by enterprise integrity tools like Tripwire.
 
 #How It Works
 
@@ -19,12 +19,16 @@ The system operates in two core phases to detect anomalies:
 If the tool detects a discrepancy during comparison, it immediately isolates the anomaly and raises a specific flag in the terminal:
 
 *ALERT: File MODIFIED! — Triggered via the Avalanche Effect. If a malicious actor or ransomware alters even a single character or space inside a file, its live cryptographic hash changes completely, breaking parity with the baseline ledger.
+
 *WARNING: New untrusted file detected! — Triggered when a brand new file is introduced to the directory that was not present during the baseline snapshot phase.
+
 *ALERT: File DELETED — Triggered when a file securely documented in the `baseline.txt` registry goes missing from the active directory.
 
-#Core Cyber Security Concepts Learned
+Core Cyber Security Concepts Learned
 *Cryptographic Hashing: Implementing industry-standard SHA-256 algorithms to ensure data immutability.
+
 *The Baseline Strategy: Establishing a rigid security posture to reliably measure system drift and suspicious anomalies.
+
 *Automation & System Traversal: Utilizing Python's native `os` library to securely audit file systems while dynamically filtering out background processes and script self-tracking.
 
 
